@@ -8,7 +8,6 @@ function places {
         </main>
     )
 }
-
 function index (data) {
     let placesFormatted = data.places.map((place) => {
         return (
