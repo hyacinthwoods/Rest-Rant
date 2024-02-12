@@ -7,7 +7,6 @@ function places {
             <h1>PLACES</h1>
         </main>
     )
-
 }
 
 function index (data) {
