@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const places = require('../models/places.js')
 // GET /places
 
 router.get('/new', (req, res) => {
@@ -23,8 +24,18 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body)
-    res.send('POST /places')
+    if (!req.body.pic) {
+        //default image in the case of none 
+        req.body.pic = '../images/kitten.jpg'
+    }
+    if (!req.body.city) {
+        req.body.city = 'Somewhere'
+    }
+    if (!req.body.state) {
+        req.body.state = 'USA'
+    }
+    places.push(req.body)
+    res.redirect('/places')
   })
   
 module.exports = router
