@@ -6,13 +6,24 @@ router.get('/new', (req, res) => {
     res.render('places/new')
   })  
 
+  router.get('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error')
+    }
+    res.render('places/show', {place: places[id] })
+  })  
+
 router.get('/', (req, res) => {
     let places = [{
         name: 'Cat Cafe',
         city: 'Las Vegas',
         state: 'NV',
         cuisines: 'Coffee, Small Meals',
-        pic: '/images/cafe.jpg'
+        pic: '/images/cat.jpg'
     }, {
         name: 'Puppy Parlor',
         city: 'Las Vegas',
