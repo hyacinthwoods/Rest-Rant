@@ -14,7 +14,7 @@ router.get('/new', (req, res) => {
     else if (!places[id]) {
         res.render('error')
     }
-    res.render('places/show', {place: places[id] })
+    res.render('places/show', {place: places[id], id})
   })  
 
 router.get('/', (req, res) => {

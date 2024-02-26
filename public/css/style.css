@@ -28,3 +28,8 @@ nav a:hover {
   text-decoration: none;
 }
 
+.hamburger {
+  size: 500px;
+  margin: right;
+  text-align: center;
+}
